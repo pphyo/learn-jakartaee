@@ -7,13 +7,13 @@
 		
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item">
-				<a href="#" class="nav-link">Courses</a>
+				<a href="courses" class="nav-link">Courses</a>
 			</li>
 			<li class="nav-item">
-				<a href="#" class="nav-link">Classes</a>
+				<a href="classes" class="nav-link">Classes</a>
 			</li>
 			<li class="nav-item">
-				<a href="#" class="nav-link">Registrations</a>
+				<a href="registration" class="nav-link">Registration</a>
 			</li>
 		</ul>
 		
