@@ -1,0 +1,1 @@
+insert into category (name) values ('Foods'), ('Drinks'), ('Fashions'), ('Electronic'), ('IT');

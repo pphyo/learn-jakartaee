@@ -1,0 +1,10 @@
+com\jdc\app\shopping\model\service\SaleService.class
+com\jdc\app\shopping\model\service\CategoryService.class
+com\jdc\app\shopping\model\entity\Sale.class
+com\jdc\app\shopping\model\service\ProductService.class
+com\jdc\app\shopping\model\entity\Product.class
+com\jdc\app\shopping\model\entity\SaleDetail.class
+com\jdc\app\shopping\controller\SalesController.class
+com\jdc\app\shopping\model\entity\Category.class
+com\jdc\app\shopping\controller\HomeController.class
+com\jdc\app\shopping\controller\ProductController.class
