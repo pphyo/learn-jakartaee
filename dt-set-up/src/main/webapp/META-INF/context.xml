@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<context>
+	<Resource
+		name="jdbc/DtSrc"
+		auth="Container"
+		type="javax.sql.DataSource"
+		username="sa"
+		password="sa"
+		driverClassName="org.hsqldb.jdbc.JDBCDriver"
+		url="jdbc:hsqldb:file:C:\Users\P Phyo\Documents\Project\JavaEE-Project\hsqldb\shopping db\shopping_db"
+	/>
+</context>
