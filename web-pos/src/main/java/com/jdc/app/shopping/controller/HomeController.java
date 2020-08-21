@@ -3,7 +3,6 @@ package com.jdc.app.shopping.controller;
 import java.io.IOException;
 
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,11 +14,10 @@ import javax.servlet.http.HttpSession;
 import com.jdc.app.shopping.model.entity.Product;
 import com.jdc.app.shopping.model.entity.Sale;
 import com.jdc.app.shopping.model.entity.SaleDetail;
-import com.jdc.app.shopping.model.service.CategoryService;
 import com.jdc.app.shopping.model.service.ProductService;
 import com.jdc.app.shopping.model.service.SaleService;
 
-@WebServlet(urlPatterns = {"/home", "/pos-search", "/add-to-cart", "/clear-detail-item", "/cart-action"})
+@WebServlet(urlPatterns = {"/home", "/pos-search", "/add-to-cart", "/clear-detail-item", "/cart-action"}, loadOnStartup = 1)
 public class HomeController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -30,15 +28,9 @@ public class HomeController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
 		EntityManagerFactory emf = (EntityManagerFactory) getServletContext().getAttribute("emf");
-		if(null == emf) {
-			emf = Persistence.createEntityManagerFactory("web-pos");
-			getServletContext().setAttribute("emf", emf);
-		}
-		CategoryService catService = new CategoryService(emf.createEntityManager());
+		
 		proService = new ProductService(emf.createEntityManager());
 		saleService = new SaleService(emf.createEntityManager());
-		
-		getServletContext().setAttribute("categories", catService.getAll());
 	}
 	
 	@Override
@@ -75,7 +67,7 @@ public class HomeController extends HttpServlet {
 			Sale s = (Sale) session.getAttribute("cart");
 			if(null != s && s.getTotal() > 0) {
 				saleService.save(s);
-				session.setAttribute("cart", new Sale());
+				session.invalidate();
 			}
 		}
 		

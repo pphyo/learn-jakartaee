@@ -39,7 +39,9 @@ public class SalesController extends HttpServlet {
 			req.setAttribute("menu", "sales");
 			getServletContext().getRequestDispatcher("/views/history.jsp").forward(req, resp);
 		} else if("/sales/edit".equals(path)) {
+			
 			String id = req.getParameter("id");
+			
 			if(null != id && !id.isEmpty()) {
 				Sale s = service.findById(Integer.parseInt(id));
 				HttpSession session = req.getSession(true);
